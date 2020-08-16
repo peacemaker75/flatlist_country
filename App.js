@@ -1,5 +1,11 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, Text, Image } from 'react-native';
+import Svg, {
+  Defs,
+  Path,
+  TextPath,
+  TSpan
+} from 'react-native-svg'
 
 class App extends React.Component {
 
@@ -20,10 +26,12 @@ class App extends React.Component {
         <Text>
           {item.capital}
         </Text>
+        <Svg>
+          {item.flag}
+        </Svg>
       </View>
       
     )
-    
       
   }
 
@@ -42,10 +50,12 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList
+        <Text style={styles.bigBlue}>Liste des pays</Text>
+        <FlatList style={styles.list}
         data={this.state.countries}
         renderItem={this.renderItem}
         />
+        <Svg height="300" width="200"/>
       </View>
     );
   }
@@ -53,7 +63,21 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'powderblue'
+  },
+  bigBlue: {
+    color: 'white',
+    marginTop: 10,
+    fontWeight: 'bold',
+    fontSize: 30,
+    backgroundColor: 'steelblue',
+    borderRadius: 5,
+  },
+  list: {
+    paddingVertical: 30,
   }
 })
 
