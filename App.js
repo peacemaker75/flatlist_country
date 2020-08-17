@@ -1,11 +1,6 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, Text, Image } from 'react-native';
-import Svg, {
-  Defs,
-  Path,
-  TextPath,
-  TSpan
-} from 'react-native-svg'
+import Svg from 'react-native-svg'
 
 class App extends React.Component {
 
@@ -26,7 +21,8 @@ class App extends React.Component {
         <Text>
           {item.capital}
         </Text>
-        <Svg>
+        <Svg  width="300"
+              height="200">
           {item.flag}
         </Svg>
       </View>
@@ -55,7 +51,7 @@ class App extends React.Component {
         data={this.state.countries}
         renderItem={this.renderItem}
         />
-        <Svg height="300" width="200"/>
+        <Svg/>
       </View>
     );
   }
